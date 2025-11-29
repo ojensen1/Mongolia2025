@@ -25,3 +25,10 @@ species_boxplots <- ggplot(data = data, mapping = aes(x = Species, y = Ctmax_deg
   theme_minimal()
 
 species_boxplots
+
+#Calculate mean CTmax by species
+
+mean_ctmax_species <- data %>%
+  group_by(Species) %>%
+  summarize(mean_Ctmax = mean(Ctmax_degC, na.rm = TRUE))
+mean_ctmax_species
